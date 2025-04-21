@@ -1,0 +1,328 @@
+/* static/css/styles.css */
+
+/* General Page Styling */
+body {
+    background-color: #f4f6f9;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Container for centered content */
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* static/css/styles.css (append or update) */
+
+/* Home Page Hero Section */
+.hero-section {
+    padding: 40px 20px;
+    background: #f4f6f9;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 50%;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 50%;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.hero-text ol {
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.hero-text ol li {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.hero-text .btn {
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    border-radius: 5px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .hero-image, .hero-text {
+        max-width: 100%;
+    }
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    .hero-text ol li {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 20px 10px;
+    }
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+    .hero-text .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Card Styling for Login/Sign Up Forms */
+/* static/css/styles.css (partial update) */
+
+.auth-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    max-width: 400px; /* Fixed width for the card */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auth-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.auth-card .form-group {
+    margin-bottom: 15px;
+    width: 100%; /* Full width for consistency */
+}
+
+.auth-card .form-control {
+    width: 100%; /* Match button width */
+    padding: 12px; /* Match button padding */
+    font-size: 1.1rem; /* Match button font size */
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+    height: 48px; /* Fixed height to match button */
+}
+
+.auth-card .form-control::placeholder {
+    color: #6c757d; /* Placeholder color */
+    opacity: 1; /* Ensure visibility */
+    font-size: 1.1rem; /* Match input text size */
+}
+
+.auth-card .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.auth-card .btn-primary {
+    width: 100%; /* Full width */
+    padding: 12px; /* Match input padding */
+    font-size: 1.1rem; /* Match input font size */
+    border-radius: 5px;
+    background: #007bff;
+    border: none;
+    height: 48px; /* Fixed height to match input */
+    line-height: normal; /* Align text vertically */
+}
+
+.auth-card .btn-primary:hover {
+    background: #0056b3;
+}
+
+.auth-card p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.auth-card a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.auth-card a:hover {
+    text-decoration: underline;
+}
+
+/* Error styling for form validation */
+.auth-card .errorlist {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+    .auth-card {
+        padding: 20px;
+        max-width: 100%; /* Allow card to shrink on small screens */
+    }
+}
+
+/* static/css/styles.css (append or update) */
+
+/* Grants Listing Page */
+.grants-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.grants-container h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Search Bar */
+.search-bar {
+    position: relative;
+    max-width: 50%;
+    margin: 0 auto 20px;
+}
+
+.search-bar .form-control {
+    border-radius: 25px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: 1px solid #ced4da;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.search-bar .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+.search-bar .form-control::placeholder {
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Grants Table */
+.grants-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.grants-table th {
+    background: #007bff;
+    color: white;
+    padding: 15px;
+    font-size: 1.1rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.grants-table td {
+    padding: 15px;
+    font-size: 1rem;
+    color: #333;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.grants-table tr:last-child td {
+    border-bottom: none;
+}
+
+.grants-table tr:hover {
+    background: #f8f9fa;
+    transition: background 0.2s ease;
+}
+
+.grants-table a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.grants-table a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Deadline Coloring */
+.deadline-red {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.deadline-orange {
+    color: #fd7e14;
+    font-weight: bold;
+}
+
+.deadline-green {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .grants-table th, .grants-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    .grants-container h2 {
+        font-size: 1.5rem;
+    }
+    .search-bar {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .grants-table {
+        display: block;
+        overflow-x: auto;
+    }
+    .grants-table th, .grants-table td {
+        min-width: 120px;
+    }
+}
