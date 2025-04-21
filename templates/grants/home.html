@@ -1,0 +1,28 @@
+<!-- templates/grants/home.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Runwei5 - Home{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-content">
+        <div class="hero-image">
+            <img src="{% static 'images/ChatGPT.png' %}" alt="Grants Opportunities">
+        </div>
+        <div class="hero-text">
+            <h1>Unlock Your Future with Runwei5</h1>
+            <ol>
+                <li>Explore a variety of grants to fund your projects.</li>
+                <li>Simplify your application process with our intuitive platform.</li>
+                <li>Stay on top of deadlines with clear, color-coded reminders.</li>
+                <li>Connect with a community of entrepreneurs and mentors.</li>
+            </ol>
+            <a href="{% url 'grants_list' %}" class="btn btn-primary">View Grants</a>
+            {% if not user.is_authenticated %}
+                <a href="{% url 'signup' %}" class="btn btn-outline-primary ms-2">Sign Up</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

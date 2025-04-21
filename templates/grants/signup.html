@@ -1,0 +1,37 @@
+<!-- templates/grants/signup.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sign Up - Runwei5{% endblock %}
+
+{% block content %}
+<div class="auth-card">
+    <h2>Sign Up</h2>
+    {% if form.errors %}
+        <div class="errorlist">
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <p>{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            {{ form.password1 }}
+        </div>
+        <div class="form-group">
+            {{ form.password2 }}
+        </div>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</div>
+{% endblock %}

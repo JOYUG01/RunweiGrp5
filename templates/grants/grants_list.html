@@ -1,0 +1,63 @@
+<!-- templates/grants/grants_list.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Grants Listing - Runwei5{% endblock %}
+
+{% block content %}
+<div class="grants-container">
+    <h2>Available Grants</h2>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search grants by category or description..." onkeyup="searchGrants()">
+    </div>
+
+    <!-- Grants Table -->
+    <table class="grants-table" id="grantsTable">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Grant Description</th>
+                <th>Deadline</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grant in grants %}
+            <tr>
+                <td>{{ grant.category }}</td>
+                <td><a href="{{ grant.link }}">{{ grant.description }}</a></td>
+                <td class="deadline-{{ grant.deadline_status }}">
+                    {{ grant.deadline|date:"Y-m-d" }}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No grants available.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- JavaScript for Search -->
+<script>
+function searchGrants() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let table = document.getElementById('grantsTable');
+    let rows = table.getElementsByTagName('tr');
+
+    for (let i = 1; i < rows.length; i++) {
+        let cells = rows[i].getElementsByTagName('td');
+        let match = false;
+        for (let j = 0; j < cells.length; j++) {
+            if (cells[j].innerText.toLowerCase().includes(input)) {
+                match = true;
+                break;
+            }
+        }
+        rows[i].style.display = match ? '' : 'none';
+    }
+}
+</script>
+{% endblock %}
