@@ -22,6 +22,6 @@ pip install requests beautifulsoup4 google-auth google-auth-oauthlib google-auth
 
 ```
 cd RunweiGrp5
-python manage.py runsever
+python manage.py runserver
 ```
 If all is well, the development server will be running at http://127.0.0.1:8000/
