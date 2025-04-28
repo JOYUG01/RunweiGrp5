@@ -6,58 +6,97 @@
 
 {% block content %}
 <div class="grants-container">
-    <h2>Available Grants</h2>
+    <meta charset="UTF-8">
+    <title>Grant Applications</title>
 
-    <!-- Search Bar -->
-    <div class="search-bar">
-        <input type="text" id="searchInput" class="form-control" placeholder="Search grants by category or description..." onkeyup="searchGrants()">
-    </div>
+    <h1>Available Grants</h1>
 
-    <!-- Grants Table -->
-    <table class="grants-table" id="grantsTable">
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <!-- Table to display available grants -->
+    <table class="grants-table">
         <thead>
             <tr>
-                <th>Category</th>
-                <th>Grant Description</th>
-                <th>Deadline</th>
+                <th>Grant Name</th>
+                <th>Click to apply</th>
             </tr>
         </thead>
         <tbody>
-            {% for grant in grants %}
-            <tr>
-                <td>{{ grant.category }}</td>
-                <td><a href="{{ grant.link }}">{{ grant.description }}</a></td>
-                <td class="deadline-{{ grant.deadline_status }}">
-                    {{ grant.deadline|date:"Y-m-d" }}
-                </td>
-            </tr>
-            {% empty %}
-            <tr>
-                <td colspan="3">No grants available.</td>
-            </tr>
+            {% for grant_name, form_url in grants.items %}
+                <tr>
+                    <td><strong>{{ grant_name }}</strong></td>
+                    <td><a href="{% url 'apply' grant_name=grant_name %}" class="apply-btn">Apply</a></td>
+                </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
 
-<!-- JavaScript for Search -->
-<script>
-function searchGrants() {
-    let input = document.getElementById('searchInput').value.toLowerCase();
-    let table = document.getElementById('grantsTable');
-    let rows = table.getElementsByTagName('tr');
-
-    for (let i = 1; i < rows.length; i++) {
-        let cells = rows[i].getElementsByTagName('td');
-        let match = false;
-        for (let j = 0; j < cells.length; j++) {
-            if (cells[j].innerText.toLowerCase().includes(input)) {
-                match = true;
-                break;
-            }
-        }
-        rows[i].style.display = match ? '' : 'none';
+<!-- Styling for the table and apply button -->
+<style>
+    .grants-container {
+        padding: 20px;
+        max-width: 900px;
+        margin: auto;
+        background-color: #f7f7f7;
+        border-radius: 8px;
     }
-}
-</script>
+
+    h1 {
+        color: #2c3e50;
+        font-family: Arial, sans-serif;
+    }
+
+    .grants-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    .grants-table th, .grants-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .grants-table th {
+        background-color: #34495e;
+        color: #ffffff;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .grants-table td {
+        background-color: #ffffff;
+    }
+
+    .apply-btn {
+        padding: 10px 20px;
+        background-color: #f3f5f7;
+        color: white; /* Set text color to white for better contrast */
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .apply-btn:hover {
+        background-color: #3498db;
+    }
+
+    /* Optional: Alternate row colors */
+    .grants-table tbody tr:nth-child(even) {
+        background-color: #ecf0f1;
+    }
+
+    .grants-table tbody tr:nth-child(odd) {
+        background-color: #ffffff;
+    }
+
+    .grants-table tr:hover {
+        background-color: #dcdde1;
+    }
+</style>
+
 {% endblock %}
