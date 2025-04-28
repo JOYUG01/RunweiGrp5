@@ -17,9 +17,8 @@ python3 -m venv venv
 ```
 source venv/bin/activate
 pip install django
+pip install requests beautifulsoup4 google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
 ```
-
-Lauch the project
 
 ```
 cd RunweiGrp5
