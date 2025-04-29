@@ -8,6 +8,8 @@ Download the repository
 git clone https://github.com/JOYUG01/RunweiGrp5.git
 ```
 
+For this to work, we need to add valid credentials for google forms API. Add credentials.json to the base directory (same level as manage.py) and update the file name of the credentials in views.py on line 110.
+
 Create a virtual enviroment and install django
 
 ```
